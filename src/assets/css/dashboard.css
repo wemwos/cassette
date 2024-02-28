@@ -1,0 +1,28 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-width: 100%;
+    min-height: 100svh;
+}
+
+.dashboard-container {
+    background-color: #181818;
+    width: 100% !important;
+}
+.dashboard-container h1 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    font-weight: 400 !important;
+}
+.dashboard-nav {
+    font-size: .7rem;
+}
+@media (min-width: 1400px)
+{
+    .dashboard-container{
+        max-width: 100% !important;
+    }
+}
