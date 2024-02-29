@@ -5,3 +5,6 @@ body {
   align-items: center;
   justify-content: center;
 }
+.container-parent {
+  max-height: 100vh;
+}

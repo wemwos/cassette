@@ -3,18 +3,18 @@ nav {
     max-width: 250px !important;
     min-width: 250px !important;
 }
-ul li {
+nav ul li {
     color: #fff;
     cursor: pointer;
     margin-bottom: 10px;
     position: relative;
-    width: 100%;
+    /* width: 100%; */
 }
 
 span {
     margin-left: 10px;
 }
-ul li:after {
+nav ul li:after {
     content: "";
     width: 0;
     height: 1px;
@@ -25,9 +25,12 @@ ul li:after {
     left: 0;
     transition: width .5s ease-out;
 }
-li:hover, li.active {
+nav li:hover, li.active {
     color: #ff0000b3;
 }
-li:hover::after {
+nav li:hover::after {
     width: 100%;
+}
+a {
+    text-decoration: none !important;
 }
