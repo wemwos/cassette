@@ -10,7 +10,7 @@ function SideNav({activePage}) {
     const navItems = [
         { text: 'Dashboard', icon: faChartLine, link: '/dashboard' },
         { text: 'User Management', icon: faUsers, link: '/user_management' },
-        { text: 'Artist Management', icon: faUser, link: '/dashboard' },
+        { text: 'Artist Management', icon: faUser, link: '/artist_management' },
         { text: 'Content Management', icon: faFileAlt, link: '/user_management' }
     ];
 
