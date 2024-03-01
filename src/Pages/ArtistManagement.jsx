@@ -1,4 +1,3 @@
-import { Button } from "primereact/button";
 import { useState } from "react";
 import Layout from "../Layout/Layout";
 import { Breadcrumbs, Typography } from "@mui/material";
@@ -7,9 +6,13 @@ import { HomeOutlined } from "@mui/icons-material";
 import "../assets/css/artist-management.css";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import * as PrimeReactButton from "primereact/button";
+import { Tooltip } from "@mui/material";
 
-
+// Import FontAwesome icons here (assuming you've added them to your project)
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faUndo } from "@fortawesome/free-solid-svg-icons";
+import artistProfilePicture from "../assets/img/artist-img.jpg";
 
 function ArtistManagement() {
   const [globalFilterValue, setGlobalFilterValue] = useState("");
@@ -25,10 +28,19 @@ function ArtistManagement() {
       facebookLink: "https://www.facebook.com/",
     },
     {
+      name: "George Michelle",
+      genre: "Ballad",
+      Description: "",
+      status: "Banned",
+      youtubeLink: "https://www.youtube.com/",
+      twitterLink: "https://twitter.com/",
+      facebookLink: "https://www.facebook.com/",
+    },
+    {
       name: "Rae Mond",
       genre: "Rap",
       Description: "",
-      status: "Pending Request",
+      status: "Active",
       youtubeLink: "https://www.youtube.com/",
       twitterLink: "https://twitter.com/",
       facebookLink: "https://www.facebook.com/",
@@ -73,36 +85,76 @@ function ArtistManagement() {
   };
 
   // Define the actions column header and body
-  const actionsHeader = <div className="text-center">Actions</div>;
+  const actionsHeader = (
+    <div className="text-center" style={{ width: "80px" }}>
+      Actions
+    </div>
+  );
   const actionsBody = (rowData) => {
-    return (
-      <div className="d-flex justify-content-center">
-        <Button
-          icon="pi pi-check" // Icon for the Approve button
-          className="p-button-success mr-2 approve-btn"
-          onClick={() => handleApprove(rowData)}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        />
-        <Button
-          icon="pi pi-times" // Icon for the Deny button
-          className="p-button-danger deny-btn"
-          onClick={() => handleDeny(rowData)}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        />
-      </div>
-    );
+    let actionButtons;
+    switch (rowData.status) {
+      case "Active":
+        actionButtons = (
+          <div className="d-flex justify-content-center">
+            <Tooltip title="Ban Artist" arrow>
+              <button
+                className="p-button p-button-danger ban-btn"
+                onClick={() => handleBan(rowData)}
+              >
+                <FontAwesomeIcon icon={faBan} />
+                <span className="ml-2"></span>
+              </button>
+            </Tooltip>
+          </div>
+        );
+        break;
+      case "Pending Request":
+        actionButtons = (
+          <div className="d-flex justify-content-center">
+            <Tooltip title="Approve Request" arrow>
+              <button
+                className="p-button p-button-success mr-2 approve-btn"
+                onClick={() => handleApprove(rowData)}
+              >
+                <FontAwesomeIcon icon={faCheck} />
+                <span className="ml-2"></span>
+              </button>
+            </Tooltip>
+            <Tooltip title="Deny Request" arrow>
+              <button
+                className="p-button p-button-danger deny-btn"
+                onClick={() => handleDeny(rowData)}
+              >
+                <FontAwesomeIcon icon={faTimes} />
+                <span className="ml-2"></span>
+              </button>
+            </Tooltip>
+          </div>
+        );
+        break;
+      case "Banned":
+        actionButtons = (
+          <div className="d-flex justify-content-center">
+            <Tooltip title="Unban Artist" arrow>
+              <button
+                className="p-button p-button-success unban-btn"
+                onClick={() => handleUnban(rowData)}
+              >
+                <FontAwesomeIcon icon={faUndo} />
+                <span className="ml-2"></span>
+              </button>
+            </Tooltip>
+          </div>
+        );
+        break;
+      default:
+        actionButtons = null;
+    }
+
+    return actionButtons;
   };
 
   // Define the description column header and body
-
   const descriptionHeader = <div className="text-center">Description</div>;
   const descriptionBody = (rowData) => {
     return (
@@ -129,11 +181,6 @@ function ArtistManagement() {
               <Link color="#fffffff2" href="/">
                 <HomeOutlined className="home-breedcrumbs" fontSize="small" />
               </Link>
-              <Link color="#fffffff2" to="/dashboard">
-                <Typography color="#fff" fontSize="small">
-                  Dashboard
-                </Typography>
-              </Link>
               <Typography color="#d40000" fontSize="small">
                 Artist Management
               </Typography>
@@ -159,8 +206,17 @@ function ArtistManagement() {
                 sortable
                 style={{ width: "20%" }}
                 field="name"
-                header="Name"
+                header="Artist"
+                body={(rowData) => (
+                  <div className="d-flex align-items-center">
+                    <div className="artist-profile-picture">
+                      <img src={artistProfilePicture} alt="Artist Profile" />
+                    </div>
+                    <div className="ml-2">{rowData.name}</div>
+                  </div>
+                )}
               />
+
               {/* Description column */}
               <Column
                 style={{ width: "30%" }}
@@ -179,6 +235,9 @@ function ArtistManagement() {
                       break;
                     case "Pending Request":
                       statusColor = "#F5E30F";
+                      break;
+                    case "Banned":
+                      statusColor = "#CE0000";
                       break;
                     default:
                       statusColor = "inherit";
