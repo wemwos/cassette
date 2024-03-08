@@ -41,7 +41,7 @@ function UserManagement() {
 
     return (
         <Layout activePage={'User Management'}>
-            <div className="container w-100 h-100 m-0 p-3 py-2 dashboard-container overflow-hidden ">
+            <div className="container-fluid w-100 h-100 m-0 p-3 py-2 dashboard-container overflow-hidden ">
                 <div className="row w-auto m-0 overflow-x-hidden overflow-y-auto">
                     <div className="col p-2 m-0 mt-1 page-title d-flex align-items-center justify-content-between ">
                         <h1 className='m-0'>User Management</h1>
@@ -49,9 +49,7 @@ function UserManagement() {
                             <Link color="#fffffff2" href="/">
                                 <HomeOutlined className='home-breedcrumbs' fontSize="small"/>
                             </Link>
-                            <Link color="#fffffff2" to="/dashboard">
-                                <Typography color="#fff" fontSize="small">Dashboard</Typography>
-                            </Link>
+                            
                                 <Typography color="#d40000" fontSize="small">User Management</Typography>
                         </Breadcrumbs>
                     </div>

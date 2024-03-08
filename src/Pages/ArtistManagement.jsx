@@ -12,8 +12,8 @@ import { Tooltip } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faBan, faUndo } from "@fortawesome/free-solid-svg-icons";
-import artistProfilePicture from "../assets/img/artist-img.jpg";
-
+import playlist from "../assets/img/playlist.jpg";
+  
 function ArtistManagement() {
   const [globalFilterValue, setGlobalFilterValue] = useState("");
 
@@ -54,7 +54,7 @@ function ArtistManagement() {
       twitterLink: "https://twitter.com/",
       facebookLink: "https://www.facebook.com/",
     },
-    // Add more objects with social media links as needed
+    
   ];
 
   const renderHeader = () => {
@@ -173,9 +173,10 @@ function ArtistManagement() {
 
   return (
     <Layout activePage={"Artist Management"}>
-      <div className="container w-100 h-100 m-0 p-3 py-2 dashboard-container overflow-hidden ">
+      <div className="container-fluid w-100 h-100 m-0 p-3 py-2 dashboard-container overflow-hidden ">
         <div className="row w-auto m-0 overflow-x-hidden overflow-y-auto">
           <div className="col p-2 m-0 mt-1 page-title d-flex align-items-center justify-content-between ">
+
             <h1 className="m-0">Artist Management</h1>
             <Breadcrumbs aria-label="breadcrumb" className="breadcrumbs">
               <Link color="#fffffff2" href="/">
@@ -209,8 +210,8 @@ function ArtistManagement() {
                 header="Artist"
                 body={(rowData) => (
                   <div className="d-flex align-items-center">
-                    <div className="artist-profile-picture">
-                      <img src={artistProfilePicture} alt="Artist Profile" />
+                    <div className="profile">
+                      <img src={playlist} alt="Artist Profile" />
                     </div>
                     <div className="ml-2">{rowData.name}</div>
                   </div>

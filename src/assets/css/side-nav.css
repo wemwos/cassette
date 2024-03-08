@@ -1,36 +1,41 @@
-nav {
-    background-color: #101010;
-    max-width: 250px !important;
-    min-width: 250px !important;
-}
-nav ul li {
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 10px;
-    position: relative;
-    /* width: 100%; */
+/* side-nav.css */
+.side-nav {
+  background-color: #101010;
+  max-width: 220px !important;
+  min-width: 200px !important;
 }
 
-span {
-    margin-left: 10px;
+.side-nav ul li {
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+  position: relative;
 }
-nav ul li:after {
-    content: "";
-    width: 0;
-    height: 1px;
-    background-color: #ffffff;
-    box-shadow: 2px 2px 5px solid rgb(255, 47, 47);
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transition: width .5s ease-out;
+
+.side-nav span {
+  margin-left: 10px;
 }
-nav li:hover, li.active {
-    color: #ff0000b3;
+
+.side-nav ul li:after {
+  content: "";
+  width: 0;
+  height: 1px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 5px solid rgb(255, 47, 47);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: width .5s ease-out;
 }
-nav li:hover::after {
-    width: 100%;
+
+.side-nav li:hover, .side-nav li.active {
+  color: #ff0000b3;
 }
-a {
-    text-decoration: none !important;
+
+.side-nav li:hover::after {
+  width: 100%;
+}
+
+.side-nav a {
+  text-decoration: none !important;
 }

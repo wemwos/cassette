@@ -1,6 +1,4 @@
 import React from 'react';
-
-// css for header
 import '../assets/css/header.css';
 
 import logo from '../assets/img/cassette-logo.png'

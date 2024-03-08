@@ -19,7 +19,7 @@ function Dashboard() {
     <>
         <Layout activePage={'Dashboard'}>
             {/* Page Content */}
-            <div className="container w-100 h-100 m-0 p-3 py-2 dashboard-container overflow-hidden ">
+            <div className="container-fluid w-100 h-100 m-0 p-3 py-2 dashboard-container overflow-hidden ">
 
                 {/* Dashboard title Row */}
                 <div className="row w-auto m-0 overflow-x-hidden overflow-y-auto">
@@ -165,4 +165,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default Dashboard;
