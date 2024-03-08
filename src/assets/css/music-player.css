@@ -4,7 +4,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .background-container {
   position: absolute;
   top: 0;
@@ -44,7 +43,7 @@
 }
 
 .artist-card-container {
-  width: calc(100% - 300px) !important; 
+  width: calc(100%) !important; 
   margin-right: 20px !important; 
   border: 2px solid #c20000;
   border-radius: 7px;
@@ -129,7 +128,7 @@
 }
 
 .track-info > div {
-  margin-right: 70px; 
+  margin-right: 50px; 
 }
 
 .track-title {
@@ -167,4 +166,48 @@
 
 .play-button.MuiButtonBase-root:hover {
   background-color: darkred !important;
+}
+
+
+/*trending artist section  */
+
+.artist-image {
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  object-fit: cover; /* Ensure the image covers the specified dimensions */
+  border-radius: 50%; /* Make the image round */
+}
+.trending-artist-title {
+  color: white;
+}
+
+.trending-artist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.artist-info {
+  display: flex;
+  align-items: center;
+}
+
+.artist-details {
+  margin-left: 5px; /* Adjust margin as needed */
+}
+
+.genre-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 300px; /* Adjust the maximum width as needed */
+  margin-top: 10px; /* Adjust as needed */
+}
+
+.genre-button {
+  flex-basis: calc(33.33% - 10px); /* 33.33% minus margin-right */
+  margin: 10px; 
+  background-color:transparent;
+  
 }
