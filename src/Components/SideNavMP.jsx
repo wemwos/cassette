@@ -17,7 +17,7 @@ function SideNavMP({ activePage }) {
   const active = activePage;
   const navItems = [
     { text: "Home", icon: faHome, link: "/Home" },
-    { text: "Music", icon: faMusic, link: "/Music" },
+    { text: "Music", icon: faMusic, link: "/music-player" },
     { text: "Podcasts", icon: faPodcast, link: "/Podcasts" },
     { text: "Videocasts", icon: faVideo, link: "/Videocasts" },
     { text: "Live", icon: faBroadcastTower, link: "/Live" },
