@@ -56,6 +56,9 @@
   max-width: 100%;
   min-width:100px;
   margin-left:10px;
+  max-height: 200px;
+  min-height: 100px;
+  overflow-y: auto;
 }
 
 .next-track {
@@ -97,8 +100,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 72px;
-  min-width:70px;
+  max-width: 65px;
+  min-width:60px;
   font-size: 12px;
   color: #ababab;
 }
@@ -175,7 +178,7 @@
 .music-player-box {
   grid-area: menu;
   background-color: transparent; /* Box background color */
-  border: 3px solid #c20000; /* Box border */
+  border: 2px solid #c20000; /* Box border */
   border-radius: 15px; /* Rounded corners */
   padding: 20px; /* Padding inside the box */
   margin: 10px 10px 10px 10px;
@@ -198,16 +201,142 @@
   margin-top: 20px;
 }
 
-.controls > .MuiButton-root {
+.controls .MuiButtonBase-root {
+  border-radius: 50%; /* Make the buttons circular */
+  background-color: #c20000; /* Set the accent color */
+  color: white; /* Set text color to white */
   margin: 0 10px;
 }
+
+/* Optional: Add hover effect */
+.controls .MuiButtonBase-root:hover {
+  background-color: #aa0000; /* Darker accent color on hover */
+}
+
 .controls {
   position: absolute;
-  bottom: 20px; /* Adjust as needed */
+  bottom: 10px; /* Adjust as needed */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%);
 }
 
+
+
+
 .progress-bar {
-  /* Add styles for progress bar */
+  position: relative;
+  bottom: 70px;
+  left: 40px;
+  width: 90%;
+  
 }
+
+.progress-bar .MuiLinearProgress-bar {
+  background-color: #c20000; /* Set the color of the progress bar */
+}
+
+/* RIGHT PANEL */
+.rightpanel {
+  margin-top: 20px;
+}
+.buttons-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between buttons */
+  justify-content: space-evenly;
+  font-size: 14px;
+}
+
+.buttons-container button {
+   /* Each button takes up an equal portion of the available space */
+  background-color: transparent;
+  border: 1px solid #918888; /* Border color for inactive buttons */
+  border-radius: 5px; /* Border radius */
+  color: white;
+  cursor: pointer;
+  height: 40px; /* Adjust the height of the buttons */
+  width: 90px;
+}
+
+
+
+.buttons-container button.active {
+  background-color: #c20000;
+  border-color: #c20000;
+}
+
+.buttons-container button.active:hover {
+  background-color: #aa0000;
+  border-color: #aa0000;
+}
+
+.playlist-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  grid-gap: 10px;
+}
+
+.lyrics-container,
+.playlist-container {
+  color: #c2c2c2;
+  margin-top: 10px;
+  max-height: 450px;
+  max-width: 350px;
+  width: 100%;
+  overflow-y: auto;
+}
+.lyrics-container {
+  max-width: 350px;
+  /* margin-left: 10px; */
+}
+.lyrics-container::-webkit-scrollbar {
+  width: 0px;
+}
+.playlist-container::-webkit-scrollbar {
+  width: 0px; 
+}
+.playlist-track .playlist-track-play-button {
+  margin-left: auto; /* Pushes the play button to the far right */
+  color: #c20000;
+}
+.playlist-track-play-button:hover {
+  color: #660000; /* Darker accent color on hover */
+}
+.lyrics-content {
+  white-space: pre-line; /* Preserve line breaks and wrap text */
+}
+.playlist-track-info {
+  color: #a1a1a1;
+}
+
+.playlist-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.playlist-track-number {
+  margin-right: 10px;
+}
+
+.playlist-track-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.playlist-track-artist {
+  font-size: 14px;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
