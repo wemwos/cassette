@@ -44,7 +44,7 @@ function Home() {
           {
             image: Track1Image,
             title: "Jusmeyo ",
-            artist: "Jonel",
+            artist: "Jonelo",
             playtime: "3:45",
             listens: 1000,
             likes: 500,
